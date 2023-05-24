@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+
+  reactapp:
+    build: reactapp
+    restart: always
+    volumes:
+      - ./reactapp:/app
+      - node-modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    networks:
+     - reactNetwork
+
+networks:
+  reactNetwork:
+
+volumes:
+  node-modules:
